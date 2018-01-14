@@ -1,0 +1,34 @@
+body {
+    margin: 0px;
+}
+
+.viewport {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.details {
+    flex: 1;
+    padding: 15px;
+    font-family: arial;
+    font-size: 1.5em;
+    overflow: hidden;
+}
+
+.tools {
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.tools button {
+    font-size: 1.5em;
+    padding: 15px;
+    margin: 5px;
+    border: none;
+    background-color: orange;
+    color: #fff;
+    border-radius: 5px;
+}
