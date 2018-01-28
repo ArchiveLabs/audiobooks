@@ -1,34 +1,82 @@
 body {
-    margin: 0px;
+  margin: 0px;
 }
 
 .viewport {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .details {
-    flex: 1;
-    padding: 15px;
-    font-family: arial;
-    font-size: 1.5em;
-    overflow: hidden;
+  flex: 1;
+  padding: 15px;
+}
+
+div.page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+textarea.text {
+  width: 100%;
+  min-height: 300px;
+  font-family: arial;
+  font-size: 1.2em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  resize: none;
+}
+
+.tools,
+.controls {
+  width: 100%;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
 }
 
 .tools {
-    padding: 15px;
-    background-color: #000;
-    color: #fff;
-    text-align: center;
+  padding: 8px 4px 2px 4px;
+}
+
+.controls {
+  padding: 2px 4px 8px 4px;
+}
+
+.controls select {
+  margin: 1px;
 }
 
 .tools button {
-    font-size: 1.5em;
-    padding: 15px;
-    margin: 5px;
-    border: none;
-    background-color: orange;
-    color: #fff;
-    border-radius: 5px;
+  font-size: 1.0em;
+  padding: 7px;
+  margin: 4px;
+  border: none;
+  background-color: darkorange;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.tools button:hover {
+    background-color: chocolate;
+}
+
+.tools button.switch {
+  width: 74px;
+}
+
+.tools button.books {
+  position: absolute; left: 0;
+  margin-left: 7px;
+}
+
+.tools button.about {
+  position: absolute; right: 0; 
+  margin-right: 7px;
+}
+
+.tools button:disabled {
+  background: #ccc;
 }
