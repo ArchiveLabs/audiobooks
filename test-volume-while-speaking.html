@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test volume while speaking</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/static/js/utils.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <h3>Test volume while speaking</h3>
+  <h4>volume = <span id="volume">0</span></h4>
+  <button id="cancel">cancel</button>
+  <p class="text">" Immodest words admit of no defense, For want of modesty is want of sense." Now, is not want of sense (where a man is so unfortunate as to want it) some apology for his want of modesty? and would not the lines stand more justly thus? " Immodest words admit but this defense, That want of modesty is want of sense." This, however, I should submit to better judg- ments. My brother had, in 1720 or 1721, begun to print a newspaper. It was the second that appeared in America,^ and was called the New England Courant. The only one before it was the Boston News-Letter. I remember his be- ing dissuaded by some of his friends from the undertaking, as not likely to succeed, one news- paper being, in their judgment, enough for America. At this time (1771) there are not less than five-and-twenty. He went on, however, with the undertaking, and after having worked in composing the types and printing off the 1 Franklin's memory does not serve him correctly here. The Courant was really the fifth newspaper established in America, although generally called the fourth, because the first, Public Oc- currences, published in Boston in 1690, was suppressed after the first issue. Following is the order in which the other four papers were published: Boston News Letter, 1704; Boston Ga- zette, December 21, 1719; The American Weekly Mercury, Phila- delphia, December 22, 1719; The New England Courant, 1721.</p>
+  <script type="text/javascript">
+
+  // test
+  $().ready(function() {
+
+    var text = $('.text').text();
+    var $volume = $('#volume');
+    var volume = 0.30;
+    var volInterval;
+
+    var synth = window.speechSynthesis;
+
+    var utterance = new SpeechSynthesisUtterance(text);
+    
+    utterance.volume = volume;
+
+    utterance.onboundary = function(event) {
+      console.log('speech synthesis boundary at char: ' + event.charIndex);
+    };
+
+    utterance.onerror = function(event) {
+      console.log('speech synthesis error: ', event.error);
+    };
+
+    utterance.onpause = function(event) {
+      console.log('speech synthesis paused');
+    };
+
+    utterance.onresume = function(event) {
+      console.log('speech synthesis resumed');
+    };
+
+    utterance.onstart = function() {         
+      console.log('speech synthesis start');
+      volInterval = setInterval(function() {
+        raiseVolume() }
+        , 500);
+    };
+
+    var raiseVolume = function() {
+      volume += 0.10;
+      if (volume < 1.0) {        
+        utterance.volume = volume;
+        $volume.html(volume);
+      } else {
+        clearInterval(volInterval);
+      }
+    };
+
+    $('#cancel').on('click', function() {
+      synth.cancel();
+      clearInterval(volInterval);
+    });
+    synth.speak(utterance);
+  });
+  </script>
+</body>
+
+</html>

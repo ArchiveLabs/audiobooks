@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FireFox SpeechSynthesis issue</title>
+</head>
+<body>
+<h3>FireFox SpeechSynthesis issue</h3>
+<p> view the code</p>
+</body>
+<script type="text/javascript">
+var synth = window.speechSynthesis;
+
+var utterThis = new SpeechSynthesisUtterance("moo");  
+synth.speak(utterThis);
+
+// if this line is commented out, FireFox will only speak once
+var utterThis = new SpeechSynthesisUtterance("moo");  
+synth.speak(utterThis);
+</script>
+
+</html>

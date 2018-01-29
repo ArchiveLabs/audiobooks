@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test .chopText()</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+  <script src="/static/js/utils.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <h3>Test utils.js $().chopText()</h3>
+  <p class="text">" Immodest words admit of no defense, For want of modesty is want of sense." Now, is not want of sense (where a man is so unfortunate as to want it) some apology for his want of modesty? and would not the lines stand more justly thus? " Immodest words admit but this defense, That want of modesty is want of sense." This, however, I should submit to better judg- ments. My brother had, in 1720 or 1721, begun to print a newspaper. It was the second that appeared in America,^ and was called the New England Courant. The only one before it was the Boston News-Letter. I remember his be- ing dissuaded by some of his friends from the undertaking, as not likely to succeed, one news- paper being, in their judgment, enough for America. At this time (1771) there are not less than five-and-twenty. He went on, however, with the undertaking, and after having worked in composing the types and printing off the 1 Franklin's memory does not serve him correctly here. The Courant was really the fifth newspaper established in America, although generally called the fourth, because the first, Public Oc- currences, published in Boston in 1690, was suppressed after the first issue. Following is the order in which the other four papers were published: Boston News Letter, 1704; Boston Ga- zette, December 21, 1719; The American Weekly Mercury, Phila- delphia, December 22, 1719; The New England Courant, 1721.</p>
+  <script type="text/javascript">
+  $().ready(function() {
+
+    var text = $('.text').text();
+    console.log(text.length);
+
+    var foo = $('.text').chopText();
+    console.log(foo);
+
+    var moo = $('.text').chopText(600);
+    console.log(moo);
+
+    var goo = $().chopText(text);
+    console.log(goo);
+
+    var roo = $().chopText(text, 40);
+    console.log(roo);
+
+    var boo = $().chopText();
+    console.log(boo);
+
+  });
+  </script>
+</body>
+
+</html>
