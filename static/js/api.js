@@ -45,9 +45,10 @@ $().ready(function() {
   };
   Browser = {
     getS3Keys: function(callback) {
-      var url = 'https://archive.org/~mek/s3keys.php';
+      var url = 'https://archive.org/account/s3.php?output_json=true';
       requests.get(url, function(keys) {
-        callback(keys);
+        keys = JSON.parse(keys);
+        callback(keys.key.s3accesskey, keys.key.s3secretkey);
       });
     },
     getUrlParameter: function(key) {

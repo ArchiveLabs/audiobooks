@@ -348,9 +348,9 @@ $().ready(function() {
     }
   }
 
-  Browser.getS3Keys(function(keys) {
-    redux.auth.s3access = keys.access;
-    redux.auth.s3secret = keys.secret;
+  Browser.getS3Keys(function(s3access, s3secret) { 
+    redux.auth.s3access = s3access;
+    redux.auth.s3secret = s3secret;
     start();
   });
 
