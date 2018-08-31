@@ -1,30 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8">
-  <link href="/static/styles/index.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
-  <script src="/static/js/api.js" type="text/javascript"></script>
-  <script src="/static/js/utils.js" type="text/javascript"></script>
-  <script src="/static/js/index.js" type="text/javascript"></script>
-  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-</head>
-
-<body>
-  <div class="viewport">
-    <div class="details">
-      <div class="page">
-<!-- a test  <div class="text" contenteditable="true"> -->
-        <textarea class="text"></textarea>  
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://archive.org/~mek/audioreader/static/styles/index.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://archive.org/~mek/audioreader/static/js/api.js" type="text/javascript"></script>
+    <script src="https://archive.org/~mek/audioreader/static/js/utils.js" type="text/javascript"></script>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+  </head>
+  <body>
+    <div class="viewport">
+      <div class="details">
+        <div class="page">
+          <textarea class="text" contenteditable="true"></textarea>
+        </div>
       </div>
-    </div>    
-  </div>
-  <div class="tools">
-  </div>
-  <div class="controls">
-  </div>
-  </div>
-</body>
+    </div>
+    <div class="options">
+      <div class="tools">
+      </div>
+      <div class="controls">
+        <select class="volume control">
+          <option value="0">0%  volume (mute)</option>
+          <option value="1">10% volume</option>
+          <option value="2">20% volume</option>
+          <option value="3">30% volume</option>
+          <option value="4">40% volume</option>
+          <option value="5">50% volume</option>
+          <option value="6">60% volume</option>
+          <option value="7">70% volume</option>
+          <option value="8">80% volume</option>
+          <option value="9">90% volume</option>
+          <option value="10" selected="">100% volume (max)</option>
+        </select>
+        <select class="pitch control">
+          <option value="1">100% lower</option>
+          <option value="1">90% lower</option>
+          <option value="2">80% lower</option>
+          <option value="3">70% lower</option>
+          <option value="4">60% lower</option>
+          <option value="5">50% lower</option>
+          <option value="6">40% lower</option>
+          <option value="7">30% lower</option>
+          <option value="8">20% lower</option>
+          <option value="9">10% lower</option>
+          <option value="10" selected="">Normal Pitch</option>
+          <option value="11">10% higher</option>
+          <option value="12">20% higher</option>
+          <option value="13">30% higher</option>
+          <option value="14">40% higher</option>
+          <option value="15">50% higher</option>
+          <option value="16">60% higher</option>
+          <option value="17">70% higher</option>
+          <option value="18">80% higher</option>
+          <option value="19">90% higher</option>
+          <option value="20">100% higher</option>
+        </select>
+        <select class="rate control">
+          <option value="0.25">0.25x</option>
+          <option value="0.5">0.5x (half)</option>
+          <option value="0.75">0.75x</option>
+          <option value="1" selected="">1x speed (normal)</option>
+          <option value="1.25">1.25x speed</option>
+          <option value="1.5">1.5x speed</option>
+          <option value="1.7">1.75x speed</option>
+          <option value="2">2x speed (double)</option>
+          <option value="2.5">2.5x speed</option>
+          <option value="3">3x speed</option>
+          <option value="5">5x speed (super saiyan)</option>
+        </select>
+      </div>
+    </div>
 
+    <script src="https://archive.org/~mek/audioreader/static/js/index.js" type="text/javascript"></script>
+
+  </body>
 </html>

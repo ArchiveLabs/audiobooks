@@ -27,8 +27,13 @@ $().ready(function() {
   Book = {
     getPage: function(ocaid, page, callback) {
       var url = apiurl + '/' + ocaid + '/pages/' + page + '/plaintext';
-      requests.get(url, function(text) {
-        callback(text);
+      var data = {};
+      if (redux && redux.auth.s3access && redux.auth.s3secret) {
+          data.access = redux.auth.s3access;
+          data.secret = redux.auth.s3secret;
+      }
+      requests.post(url, data, function(text) {
+        callback(text.replace('- ', ''));
       });
     },
     getFirstPage: function(ocaid, callback) {
@@ -39,6 +44,12 @@ $().ready(function() {
     }
   };
   Browser = {
+    getS3Keys: function(callback) {
+      var url = 'https://archive.org/~mek/s3keys.php';
+      requests.get(url, function(keys) {
+        callback(keys);
+      });
+    },
     getUrlParameter: function(key) {
       var query = window.location.search.substring(1);
       var params = query.split("&");
@@ -60,29 +71,6 @@ $().ready(function() {
         result[item[0]] = decodeURIComponent(item[1]);
       });
       return result;
-    },
-
-    removeURLParameter: function(url, parameter) {
-      var urlparts = url.split('?');
-      var prefix = urlparts[0];
-      if (urlparts.length >= 2) {
-        var query = urlparts[1];
-        var paramPrefix = encodeURIComponent(parameter) + '=';
-        var params = query.split(/[&;]/g);
-
-        //reverse iteration as may be destructive
-        for (var i = params.length; i-- > 0;) {
-          //idiom for string.startsWith
-          if (params[i].lastIndexOf(paramPrefix, 0) !== -1) {
-            params.splice(i, 1);
-          }
-        }
-
-        url = prefix + (params.length > 0 ? '?' + params.join('&') : "");
-        return url;
-      } else {
-        return url;
-      }
     }
   };
 });
