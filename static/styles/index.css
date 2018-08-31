@@ -1,27 +1,38 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   margin: 0px;
 }
 
 .viewport {
-  height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 
 .details {
+  height: 100%;
   flex: 1;
-  padding: 15px;
 }
 
 div.page {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
 
 textarea.text {
+  padding: 15px;
+  line-height: 1.75em;
+  border: none;
   width: 100%;
-  min-height: 300px;
+  flex: 1;
   font-family: arial;
   font-size: 1.2em;
   overflow-y: scroll;
