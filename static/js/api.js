@@ -46,9 +46,11 @@ $().ready(function() {
   Browser = {
     getS3Keys: function(callback) {
       var url = 'https://archive.org/account/s3.php?output_json=true';
-      requests.get(url, function(keys) {
-        keys = JSON.parse(keys);
-        callback(keys.key.s3accesskey, keys.key.s3secretkey);
+      requests.get(url, function(resp) {
+        resp = JSON.parse(resp);
+        var s3accesskey = resp.success == 1 ? resp.key.s3accesskey : '';
+        var s3secretkey = resp.success == 1 ? resp.key.s3secretkey : '';
+        callback(s3accesskey, s3secretkey);
       });
     },
     getUrlParameter: function(key) {
